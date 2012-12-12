@@ -4,5 +4,10 @@
 {% block title %}{{ page.title }}{% endblock %}
 
 {% block content %}
+<article>
+    {# PAGE TITLE #}
+    <h2>{{ page.title|markdown }}</h2>
+
+    {# PAGE BODY #}
     {{ page.body|markdown }}
 {% endblock content %}
