@@ -2,7 +2,11 @@
     "name": "syndicate-theory/blog",
     "description": "A community-sourced blogging platform.",
     "require": {
-        "silex/silex": "dev-master"
+        "silex/silex": "dev-master",
+        "symfony/finder": "2.1.*",
+        "symfony/yaml": "2.1.*",
+        "twig/twig": "*",
+        "aptoma/twig-markdown": "0.1.*"
     },
     "authors": [
         {
