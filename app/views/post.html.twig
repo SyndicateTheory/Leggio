@@ -1,2 +1,7 @@
-<h1>{{ post.title }}</h1>
-<p>{{ post.body|markdown }}</p>
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    {{ post.body|markdown }}
+{% endblock content %}

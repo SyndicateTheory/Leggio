@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+        </ul>
+    
+    
+        <h1>{{ block('title') }}</h1>
+        {% block content %}{% endblock content %}
+    </body>
+</html>
