@@ -3,5 +3,21 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
+<article>
+    {# POST TITLE #}
+    <h2>{{ post.title|markdown }}</h2>
+
+    {# POST METADATA #}
+    <ul class="inline">
+        <li><i class="icon-user"></i> <a href="http://example.com/">Author</a></li>
+        <li><i class="icon-time"></i> <small class="muted">2013-01-01 12:00</small></li>
+        <li><i class="icon-tag"></i> <span class="label label-info"><a href="http://example.com/">tag</a></span> <span class="label label-info"><a href="http://example.com/">tag</a></span></li>
+        <li><i class="icon-comment"></i> <a href="http://example.com/">5</a></li>
+    </ul>
+
+    {# POST CONTENT #}
     {{ post.body|markdown }}
+</article>
+
+    {# COMMENTS #}
 {% endblock content %}
