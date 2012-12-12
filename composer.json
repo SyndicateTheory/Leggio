@@ -1,0 +1,13 @@
+{
+    "name": "syndicate-theory/blog",
+    "description": "A community-sourced blogging platform.",
+    "require": {
+        "silex/silex": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Adrian Schneider",
+            "email": "adrian@syndicatetheory.com"
+        }
+    ]
+}
