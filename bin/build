@@ -4,4 +4,6 @@
 $outputDir = !empty($argv[1]) ? $argv[1] : __DIR__ . '/../build';
 
 $app = include __DIR__ . '/../app/app.php';
-$app->build($outputDir);
+$builder = new Leggio\Builder;
+
+$builder->build($app, $outputDir);
