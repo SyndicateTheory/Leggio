@@ -1,6 +1,6 @@
 # Leggio
 
-Leggio is a file-based blogging platform inspired by Jeckyll.  It can either be used directly on a web server, or it can generate flat files.  This is still a work in progress.
+Leggio is a file-based blogging platform inspired by Jekyll.  It can either be used directly on a web server, or it can generate flat files.  This is still a work in progress.
 
 ## Why
 
