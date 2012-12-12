@@ -55,6 +55,11 @@ class Builder
             mkdir($dir, 0777, true);
         }
         
-        file_put_contents($location . $url, $response->getContent());
+        $newFile = $location . $url;
+        if (is_dir($newFile)) {
+            $newFile .= '/index.html';
+        }
+        
+        file_put_contents($newFile, $response->getContent());
     }
 }

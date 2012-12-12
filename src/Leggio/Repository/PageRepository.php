@@ -46,13 +46,28 @@ class PageRepository
             ->files()
             ->in($this->dir)
             ->name('*.' . $this->extension)
-            ->depth('== 0')
         ;
         
         $out = array();
+        $files = array();
         
         foreach ($finder as $filename => $info) {
-            $out[] = $this->load($filename);
+            $files[] = $filename;
+        }
+        
+        usort($files, function($a, $b) {
+            $a = strlen($a);
+            $b = strlen($b);
+            
+            if ($a == $b) {
+                return 0;
+            }
+            
+            return $a > $b ? -1 : 1;
+        });
+        
+        foreach ($files as $file) {
+            $out[] = $this->load($file);
         }
         
         return $out;
@@ -67,7 +82,7 @@ class PageRepository
     protected function load($filename)
     {
         $page = $this->parser->parse($filename);
-        $page['slug'] = pathinfo($filename, PATHINFO_FILENAME);
+        $page['slug'] = substr(trim(str_replace($this->dir, '', $filename), '/'), 0, -strlen($this->extension) - 1);
         $page['url'] = sprintf('/%s', $page['slug']);
         
         return $page;

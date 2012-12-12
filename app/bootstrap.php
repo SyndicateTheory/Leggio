@@ -41,7 +41,7 @@ $app['controllers']
         return new DateTime($date);
     })
     ->assert('date', '(\d{4})/(\d{2})/(\d{2})')
-    ->assert('slug', '([-a-z0-9]+)')
+    ->assert('slug', '([-/a-z0-9]+)')
 ;
 
 return $app;
