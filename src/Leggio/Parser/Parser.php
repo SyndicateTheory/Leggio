@@ -1,6 +1,6 @@
 <?php
 
-namespace Synd\Blog\Parser;
+namespace Leggio\Parser;
 
 use Symfony\Component\Yaml\Parser as YamlParser;
 

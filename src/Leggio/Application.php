@@ -1,6 +1,6 @@
 <?php
 
-namespace Synd\Blog;
+namespace Leggio;
 
 use Silex\Application as BaseApplication;
 use Symfony\Component\HttpFoundation\Request;

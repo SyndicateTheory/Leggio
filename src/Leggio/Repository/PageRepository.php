@@ -1,11 +1,11 @@
 <?php
 
-namespace Synd\Blog\Repository;
+namespace Leggio\Repository;
 
-use Synd\Blog\Parser\Parser;
+use Leggio\Parser\Parser;
 use Symfony\Component\Finder\Finder;
 
-class PostRepository
+class PageRepository
 {
     protected $dir;
     protected $extension;
@@ -19,14 +19,14 @@ class PostRepository
     }
     
     /**
-     * Find a post by date/slug
+     * Find a page by slug
      * 
-     * @param    DateTime
-     * @param    string        Post slug
+     * @param    string        Page slug
+     * @return   array         Page info
      */
-    public function find(\DateTime $date, $slug)
+    public function find($slug)
     {
-        $filename = sprintf('%s/%s-%s.%s', $this->dir, $date->format('Y-m-d'), $slug, $this->extension);
+        $filename = sprintf('%s/%s.%s', $this->dir, $slug, $this->extension);
         if (!file_exists($filename)) {
             return;
         }
@@ -35,7 +35,9 @@ class PostRepository
     }
     
     /**
-     * Find all posts
+     * Find all pages
+     * 
+     * @return    array        Page arrays
      */
     public function findAll()
     {
@@ -56,15 +58,18 @@ class PostRepository
         return $out;
     }
     
+    /**
+     * Load a specific page from the filesystem 
+     * 
+     * @param    string        Filename
+     * @return   array         Page info
+     */
     protected function load($filename)
     {
-        $parts = explode('-', pathinfo($filename, PATHINFO_FILENAME), 4);
+        $page = $this->parser->parse($filename);
+        $page['slug'] = pathinfo($filename, PATHINFO_FILENAME);
+        $page['url'] = sprintf('/%s', $page['slug']);
         
-        $post = $this->parser->parse($filename);
-        $post['date'] = new \DateTime($post['date']);
-        $post['slug'] = $parts[3];
-        $post['url'] = sprintf('/%s/%s', $post['date']->format('Y/m/d'), $post['slug']);
-        
-        return $post;
+        return $page;
     }
 }

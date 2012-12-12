@@ -1,9 +1,9 @@
 <?php
 
 $loader = require_once __DIR__.'/../vendor/autoload.php';
-$loader->add('Synd', __DIR__ . '/../src');
+$loader->add('Leggio', __DIR__ . '/../src');
 
-$app = new Synd\Blog\Application();
+$app = new Leggio\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ .'/views'
@@ -17,11 +17,11 @@ $app['twig']->addExtension(new Aptoma\Twig\Extension\MarkdownExtension($app['mar
 
 
 $app['blog.parser'] = $app->share(function() use ($app) {
-    return new Synd\Blog\Parser\Parser();
+    return new Leggio\Parser\Parser();
 });
 
 $app['post.repository'] = $app->share(function() use ($app) {
-   return new Synd\Blog\Repository\PostRepository(
+   return new Leggio\Repository\PostRepository(
        $app['blog.post_dir'],
        $app['blog.post_extension'],
        $app['blog.parser']
@@ -29,7 +29,7 @@ $app['post.repository'] = $app->share(function() use ($app) {
 });
 
 $app['page.repository'] = $app->share(function() use ($app) {
-    return new Synd\Blog\Repository\PageRepository(
+    return new Leggio\Repository\PageRepository(
         $app['blog.page_dir'],
         $app['blog.page_extension'],
         $app['blog.parser']
