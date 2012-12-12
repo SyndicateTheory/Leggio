@@ -1,5 +1,5 @@
 {
-    "name": "syndicate-theory/blog",
+    "name": "syndicate-theory/leggio",
     "description": "A community-sourced blogging platform.",
     "require": {
         "silex/silex": "dev-master",
