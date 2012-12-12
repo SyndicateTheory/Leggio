@@ -6,7 +6,7 @@ Leggio is a file-based blogging platform inspired by Jekyll.  It can either be u
 
 I love the idea of writing content with markdown. I want to control and version my work, and not be at the mercy of a poorly designed application or closed platform. I also want to be able to modify behaviour of the generated output.  With most file-based generators, there is no website.  There is the process of reading files and dumping them somewhere else.  Leggio is different.
 
-Leggio runs as a web application, parsing HTTP requests and returning HTTP responses.  It can also dump the entire application as static files, mimicking projects like Jeckyll or Second Crack without the limitations.
+Leggio runs as a web application, parsing HTTP requests and returning HTTP responses.  It can also dump the entire application as static files, mimicking projects like Jekyll or Second Crack without the limitations.
 
 ## Under the Hood
 
