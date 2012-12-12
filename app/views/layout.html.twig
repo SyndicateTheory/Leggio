@@ -1,16 +1,84 @@
 <!doctype html>
 <html>
-    <head>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+
+            article {
+                padding-bottom: 30px;
+            }
+
+            article h2 {
+                border-bottom: solid 1px #efefef;
+                margin-bottom: 5px;
+            }
+
+            article h2 a {
+                color: inherit;
+            }
+
+            article h2 a:hover {
+                text-decoration: none;
+            }
+
+            .label a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: normal;
+                opacity: 0.8;
+            }
+
+            .label a:hover {
+                opacity: 1;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
+
     <body>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-        </ul>
-    
-    
-        <h1>{{ block('title') }}</h1>
-        {% block content %}{% endblock content %}
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container">
+
+            <header class="page-header">
+
+                <ul class="nav nav-pills pull-right">
+                    <li class="active">
+                        <a href="/">Home</a>
+                    </li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/archive">Archive</a></li>
+                </ul>
+
+                <h1>{{ block('title') }} <small>subtitle</small></h1>
+            </header>
+
+            <div class="row">
+                <div class="span6 offset1 clearfix">
+                    {% block content %}{% endblock content %}
+                </div>
+            </div>
+
+            <hr>
+
+            <footer>
+                <p>&copy; {{ block('title') }} 2012</p>
+            </footer>
+
+        </div>
     </body>
 </html>
