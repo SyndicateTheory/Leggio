@@ -6,6 +6,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Builder
 {
+    /**
+     * Builds an Application into an HTML archive
+     * 
+     * @param    Application
+     * @param    string        Path to output directory
+     */
     public function build(Application $app, $location)
     {
         $pages = array();
