@@ -3,7 +3,7 @@
 $loader = require_once __DIR__.'/../vendor/autoload.php';
 $loader->add('Synd', __DIR__ . '/../src');
 
-$app = new Silex\Application();
+$app = new Synd\Blog\Application();
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ .'/views'
@@ -35,7 +35,6 @@ $app['page.repository'] = $app->share(function() use ($app) {
         $app['blog.parser']
     );
 });
-
 
 $app['controllers']
     ->convert('date', function($date) {
