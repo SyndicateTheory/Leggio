@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}Leggio Page{% endblock %}
 
 {% block content %}
 <article>
@@ -10,4 +9,5 @@
 
     {# PAGE BODY #}
     {{ page.body|markdown }}
+</article>
 {% endblock content %}
